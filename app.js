@@ -9,6 +9,7 @@ var session = require("express-session");
 
 var indexRouter = require('./routes/index');
 var textsRouter = require('./routes/textsRouter');
+var diceRouter = require('./routes/diceRouter');
 
 var app = express();
 app.use(bodyParser.json());
@@ -44,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/texts', textsRouter);
+app.use('/roll', diceRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-const session = require("express-session")
 const Paragraph = require('../models/TextModel')
 
 let page = 0;
