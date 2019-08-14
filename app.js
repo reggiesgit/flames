@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+var session = require("express-session");
 
 var indexRouter = require('./routes/index');
 var textsRouter = require('./routes/textsRouter');
@@ -12,6 +13,11 @@ var textsRouter = require('./routes/textsRouter');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(session({
+    secret:'burn1nH311', 
+    resave: false,
+    saveUninitialized: true
+  }));
 
 var dbAddress = 'mongodb://localhost/cocTexts';
 mongoose.connect(dbAddress, {useNewUrlParser: true}, function(err, db) {
