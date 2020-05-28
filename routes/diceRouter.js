@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 function rollD4(){
     return Math.floor(Math.random() * Math.floor(4) + 1)

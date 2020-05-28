@@ -1,19 +1,26 @@
 {
-  "name": "burninhell",
-  "version": "0.0.0",
-  "private": true,
+  "name": "loner",
+  "version": "1.0.0",
+  "description": "Replacement for old project 'flames' for COC solo play.",
+  "main": "server.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
+  "keywords": [
+    "node",
+    "express",
+    "mongoose",
+    "mongodb",
+    "atlas"
+  ],
+  "author": "Reggie",
+  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "^4.16.4",
-    "express-session": "^1.16.2",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "mongoose": "^5.7.5",
-    "morgan": "~1.9.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

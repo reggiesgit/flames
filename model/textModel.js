@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-    const Paragraph = new mongoose.Schema({
+    const ParagraphSchema = new mongoose.Schema({
         title: {type: String},
         paragraphNr: { type: Number },
         paragraphPart: {type: Number},
@@ -10,4 +10,4 @@ const mongoose = require('mongoose')
         nextParagraphFailure: {type: Number}
     })
 
-module.exports = mongoose.model('paragraph', Paragraph, 'paragraph')
+module.exports = mongoose.model('paragraphs', ParagraphSchema)
