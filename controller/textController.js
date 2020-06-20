@@ -11,16 +11,19 @@ const getNext = (req, res) => {
     console.log('Looking for page ', page, ' part ', part);
     textSchema.find(filter)
         .then(response => {
-            res.json({
-                status: 200,
-                message: 'success',
-                data: JSON.stringify(response, null, 1)
-            })
-            if (response[0].hasNextParagraph) {
-                page += 1;
-                part = 1;
-            } else {
-                part += 1;
+            if (response.length > 0) {
+                resolveNext(response);
+                res.json({
+                    status: 200,
+                    message: 'success',
+                    data: response
+                })
+            } else { 
+                res.json({
+                    status: 404,
+                    message: 'empty response',
+                    data: 
+                })
             }
         })
         .catch(err => {
@@ -51,13 +54,14 @@ const createText = (req, res) => {
 };
 
 function resolveNext(text) {
-    console.log('resolving next... ', text)
+    console.log('resolving next...')
     if (text[0].hasNextParagraph) {
         page += 1;
         part = 1;
     } else {
         part += 1;
     }
+    console.log('next will be page ', page, ' part ', part)
 }
 
 module.exports = { getNext, createText };
